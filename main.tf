@@ -28,7 +28,6 @@ resource "aws_ec2_transit_gateway_route_table_association" "dx_gateway_lnd_eng_1
 
 data "aws_ec2_transit_gateway_attachment" "lnd_eng_1" {
   transit_gateway_id = aws_ec2_transit_gateway.main_router.id
-  dx_gateway_id      = aws_dx_gateway.lnd_eng_1.id
 }
 
 locals {
