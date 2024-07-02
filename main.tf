@@ -22,11 +22,12 @@ resource "aws_dx_gateway_association" "lnd_eng_1" {
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "dx_gateway_lnd_eng_1" {
-  transit_gateway_attachment_id  = data.aws_ec2_transit_gateway_attachment.lnd_eng_1.transit_gateway_attachment_id
+  transit_gateway_attachment_id  = data.aws_ec2_transit_gateway_attachment.lnd_eng_1.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.main_router.id
 }
 
 data "aws_ec2_transit_gateway_attachment" "lnd_eng_1" {
+  // Specify the criteria to find the correct attachment
   transit_gateway_id = aws_ec2_transit_gateway.main_router.id
 }
 
